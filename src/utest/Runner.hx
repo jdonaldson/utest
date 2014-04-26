@@ -133,7 +133,8 @@ class Runner {
 	}
 
 	function runFixture(fixture : TestFixture<Dynamic>) {
-		var handler = new TestHandler(fixture);
+	    // cast the fixture to avoid a java error
+		var handler = new TestHandler(cast fixture);
 		handler.onComplete.add(testComplete);
 		handler.onPrecheck.add(function(x){
             this.onPrecheck.dispatch(x);
